@@ -11,8 +11,8 @@ const DEBOUNCE_DELAY = 300;
 refs.inputEl.addEventListener('input', debounce(onInputSearch, 3000));
 
 function onInputSearch (){
-    // const search = event.target.value
-    // console.log(search)
+    const search = event.target.value
+    console.log(search)
     console.log('hi')
     
 
