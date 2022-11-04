@@ -19,7 +19,7 @@ function onInputSearch (e){
    clearInterface();
 const searchCountry = e.target.value.trim();
 if(searchCountry.length>=1){
-fetchCountries(searchCountry);
+API.fetchCountries(searchCountry).then(renderCountryList).catch(onError);
 }
 }
 
@@ -29,14 +29,14 @@ function clearInterface(){
     refs.countryList.innerHTML = '';
 }
 
-function fetchCountries(country){
-    fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,languages,flags,population`).then(response=>{
-        if(!response.ok){
-            throw Error(response.statusText);
-        }
-    return response.json()
-    }).then(renderCountryList).catch(onError)
-}
+// function fetchCountries(country){
+//     fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,languages,flags,population`).then(response=>{
+//         if(!response.ok){
+//             throw Error(response.statusText);
+//         }
+//     return response.json()
+//     }).then(renderCountryList).catch(onError)
+// }
 
 
 function onError(){
@@ -48,12 +48,12 @@ function renderCountryList(countries){
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
         return;
     }
-    countries.map(country => {
+    countries.forEach(country => {
         if(countries.length === 1){
             makeCountryInfo(country);
-        }else{
-            makeCountryList(country);
         }
+    makeCountryList(country);
+        
     });
 }
 
