@@ -75,3 +75,4 @@ function makeCountryInfo({name, capital, flags, population, languages}){
     return countryList = refs.countryInfo.insertAdjacentHTML('beforeend', countryInfo)
 }
 
+
