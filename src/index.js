@@ -48,7 +48,7 @@ function renderCountryList(countries){
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
         return;
     }
-    countries.forEach(country => {
+    countries.map(country => {
         if(countries.length === 1){
             makeCountryInfo(country);
         }else{
