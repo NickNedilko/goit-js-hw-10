@@ -13,7 +13,7 @@ const refs = {
 const DEBOUNCE_DELAY = 300;
 
 refs.inputEl.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
-// let countryList = '';
+let countryList = '';
 
 function onInputSearch (e){
    clearInterface();
