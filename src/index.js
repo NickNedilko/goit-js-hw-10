@@ -20,7 +20,6 @@ function onInputSearch (e){
 const searchCountry = e.target.value.trim();
 if(searchCountry.length >= 1 ){
 API.fetchCountries(searchCountry).then(renderCountryList).catch(onError);
-// fetchCountries(searchCountry);
 }
 
 function clearInterface(){
@@ -50,6 +49,7 @@ function renderCountryList(countries){
     countries.forEach(country => {
         if(countries.length === 1){
             makeCountryInfo(country);
+            return;
         }
             makeCountryList(country);
         
@@ -65,7 +65,7 @@ return  refs.countryList.insertAdjacentHTML('beforeend', country);
 
 function makeCountryInfo({name, capital, flags, population, languages}){
     const countryInfo = `<div>
-    <img src="${flags.svg}" width=32 alt="${name.official}">
+    <img src="${flags.svg}" width=45 alt="${name.official}">
     <span class="country-name">${name.official}</span>
     <p> Capital: ${capital}</p>
     <p> Population: ${population}</p>

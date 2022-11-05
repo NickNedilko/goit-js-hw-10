@@ -3,6 +3,7 @@
 }
 ul{
   list-style: none;
+  padding: 0;
   
 }
 body {
@@ -23,9 +24,13 @@ body {
   border-radius: 3px;
 }
 
+
+#search-box:focus{
+  outline: 2px dotted blue;
+  border: none;
+}
 .country-list__item{
   font-size: 1.25rem;
-
 }
 
 .country-name{
